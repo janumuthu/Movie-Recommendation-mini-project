@@ -1,4 +1,4 @@
-from flask import Flask , render_template , request
+from flask import Flask , render_template , request , url_for
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
@@ -32,7 +32,7 @@ app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
 @app.route('/')
 @app.route('/home')
 def home():
-    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'i.jpg')
+    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'a.jpg')
     return render_template('index.html', user_image =full_filename)
 @app.route('/predict',methods=["POST"])
 def predict():
